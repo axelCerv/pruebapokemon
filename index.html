@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba Curadeuda</title>
+
+    <link rel="stylesheet" href="./css/styles.css">
+    <!-------ICONS-------->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="./img/logo-ico.ico" type="image/x-icon">
+</head>
+<body>
+    <main>
+        <div class="menu-responsive">
+            <a href="#inicio"><img src="./img/logo_pokemon.png" alt="pokemon logo-pokemon"></a>
+            <button class="menu-btn"><i class='bx bx-menu'></i></button>
+        </div>
+    <!--------------------MENU----------------------->
+        <nav class="side-nav">
+            <button class="close-btn"><i class='bx bx-plus'></i></button>
+            <a href="#inicio" class="logo">
+                <img src="./img/logo_pokemon.png" alt="pokemon logo-pokemon">
+            </a>
+            <div class="menu">
+                <div class="item-menu">
+                    <span class="selector"></span>
+                    <a href="#inicio">Inicio</a>
+                </div>
+                <div class="item-menu ">
+                    <span class="selector"></span>
+                    <a href="#historia">Historia</a>
+                </div>
+                <div class="item-menu ">
+                    <span class="selector"></span>
+                    <a href="#pokedex">Pokedex</a>
+                </div>
+                <div class="item-menu">
+                    <span class="selector"></span>
+                    <a href="#videojuegos">Videojuegos</a>
+                </div>
+                <div class="item-menu">
+                    <span class="selector"></span>
+                    <a href="#noticias">Noticias</a>
+                </div>
+            </div>
+            <div class="redes-nav">
+                <a href="https://www.facebook.com/PokemonOficialLatAm/?brand_redir=230809307041021" target="_blank"><i class='bx bxl-facebook'></i></a>
+                <a href="https://www.instagram.com/pokemon/" target="_blank"><i class='bx bxl-instagram' ></i></a>
+                <a href="https://twitter.com/Pokemon" target="_blank"><i class='bx bxl-twitter' ></i></a>
+            </div>
+        </nav>
+        <div class="contenido">
+
+            <!--------------------INICIO----------------------->
+            <section id="inicio" class="section">
+                <div class="inicio">
+                    <img src="./img/home-img.png" alt="">
+                </div>
+            </section>
+            <!--------------------HISTORIA----------------------->
+            <section id="historia" class="section">
+                <div class="historia">
+                    <div>      
+                        <h2 class="title-section">Historia</h2>
+                        <p class="text">
+                            Cuando el creador, Satoshi Tajiri, era joven, uno de sus pasatiempos favoritos era la recolección y colección de insectos. Tajiri se dirigió a la ciudad de Tokio a estudiar, ya que su padre quería que fuese ingeniero. Sin embargo, a Tajiri no le agradaba la idea de estudiar y se dedicaba más a pasatiempos como los videojuegos. Pasó un tiempo y Tajiri llegó a trabajar como jugador de prueba de algunos juegos para revistas, junto a Ken Sugimori, con quien hizo una gran amistad.
+                        </p>
+                    </div>
+                   <img src="./img/pikachu.png" alt="pikachu">
+                </div>
+            </section>
+            <!--------------------POKEDEX----------------------->
+            <section id="pokedex" class="section">
+                <div class="pokedex">
+                    <header class="head-pokedex">
+                        <h2 class="title-section">Pokedex</h2>
+                        <div class="search">
+                            <input type="text" class="input-search" placeholder="Buscar Pokemon">
+                            <button class="btn-search"><i class='bx bx-search-alt' ></i></button>
+                        </div>
+                    </header>
+                    
+                    
+                    <div class="cards">
+                        
+                    </div>
+                    <div class="paginacion">
+                        <button class="btn-pages" id="btn-anterior"><i class='bx bxs-chevron-left' ></i></button>
+                        <button class="btn-pages" id="btn-siguiente"><i class='bx bxs-chevron-right' ></i></button>
+                    </div>
+                </div>
+            </section>
+            <!--------------------VIDEOJUEGOS----------------------->
+            <section id="videojuegos" class="section">
+                <div class="videojuegos">
+                    <h2 class="title-section">Videojuegos</h2>
+                </div>
+            </section>
+            <!--------------------NOTICIAS----------------------->
+            <section id="noticias" class="section">
+                <div class="noticias">
+                    <h2 class="title-section">Noticias</h2>
+                </div>
+            </section>
+           
+        </div>
+        
+    </main>
+
+    <!--------------------FLOAT BUTTON----------------------->
+    <a href="https://www.pokemoncenter.com/" class="float-button" target="_blank">
+        <i class='bx bx-store'></i>
+    </a>
+
+    <script src="./js/main.js"></script>
+</body>
+</html>
