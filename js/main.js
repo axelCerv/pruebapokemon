@@ -30,8 +30,10 @@ btnAnterior.addEventListener('click',()=>{
 
 
 // ============================CARGAR POKEMONES====================
+const cardsCount = document.querySelector('.cards');
 
 const cargarPokemon = async()=>{
+        
         let pokemons = '';
     
         const url = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=8&offset=${pagina}`);
@@ -90,22 +92,31 @@ const cargarPokemon = async()=>{
                 loadData();
                 
             }))   
-        
-       
     
+        
+        
 }
 cargarPokemon();
 
+// -------------------------LIMPIAR ITEMS-----------------
+
+
 const cleanItems = () =>{
-    let card = document.querySelectorAll('.card');
+    
+        let card = document.querySelectorAll('.card');
             card.forEach((e)=>{
                 e.remove();
-            })
+        });
+
+    
 }
 
 
+// ============================BUSCAR POKEMONES====================
 const inputPoke = document.querySelector('.input-search');
 const btnSearch = document.querySelector('.btn-search');
+
+
 
 const searchPokemon = async() =>{
     const urlSearch = await fetch(`https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1118`);
@@ -170,32 +181,39 @@ const searchPokemon = async() =>{
         if(poke.name == inputPoke.value.toLowerCase() ){
             loadData()
             validate = true;
+        }else{
+            
         }
     });
 
     if(validate){
-        cleanItems();
+        
     }
     else if(inputPoke.value === ''){
         cleanItems();
         cargarPokemon();
-    }
-
-    
-    
+    }  
     
 }
+
+
+
 btnSearch.addEventListener('click',()=>{
-    searchPokemon();
+    if(inputPoke.value == ''){
+        
+    }else{
+        searchPokemon();
+    }
 });
 inputPoke.addEventListener('keydown', (tecla)=>{
     if(tecla.key === 'Backspace'){
-        if(inputPoke == ''){
-            inputPoke.value = '';
+        if(inputPoke.value == '' ){
             cleanItems();
+        }else{
+            searchPokemon();
         }
         
-        searchPokemon();
+        
         
     }
     else if(tecla.key === 'Enter'){
@@ -204,6 +222,9 @@ inputPoke.addEventListener('keydown', (tecla)=>{
 })
 inputPoke.addEventListener('blur', searchPokemon);
 inputPoke.addEventListener('keyup', searchPokemon)
+
+
+
 
 
 // ----------------------------NAV MENU SCRIPTS-----------------------
