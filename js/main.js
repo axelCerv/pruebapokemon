@@ -96,6 +96,13 @@ const cargarPokemon = async()=>{
 }
 cargarPokemon();
 
+const cleanItems = () =>{
+    let card = document.querySelectorAll('.card');
+            card.forEach((e)=>{
+                e.remove();
+            })
+}
+
 
 const inputPoke = document.querySelector('.input-search');
 const btnSearch = document.querySelector('.btn-search');
@@ -110,10 +117,9 @@ const searchPokemon = async() =>{
 
     pokeDB.forEach((poke)=>{
         
-        let name = poke.name;
         const loadData = async() =>{
             
-            const pokeurl = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
+            const pokeurl = await fetch(poke.url);
             const pokedata = await pokeurl.json();
             let tipoHtml = ''
             const tipoPoke = pokedata.types;
@@ -161,19 +167,17 @@ const searchPokemon = async() =>{
             
             document.querySelector('.cards').innerHTML = pokemons;
         }
-        if(poke.name == inputPoke.value){
+        if(poke.name == inputPoke.value.toLowerCase() ){
             loadData()
             validate = true;
         }
     });
 
     if(validate){
-        let card = document.querySelectorAll('.card');
-            card.forEach((e)=>{
-                e.remove();
-            })
+        cleanItems();
     }
     else if(inputPoke.value === ''){
+        cleanItems();
         cargarPokemon();
     }
 
@@ -186,14 +190,20 @@ btnSearch.addEventListener('click',()=>{
 });
 inputPoke.addEventListener('keydown', (tecla)=>{
     if(tecla.key === 'Backspace'){
+        if(inputPoke == ''){
+            inputPoke.value = '';
+            cleanItems();
+        }
+        
         searchPokemon();
-        inputPoke.value = '';
+        
     }
     else if(tecla.key === 'Enter'){
         searchPokemon();
     }
 })
-// inputPoke.addEventListener('blur', searchPokemon)
+inputPoke.addEventListener('blur', searchPokemon);
+inputPoke.addEventListener('keyup', searchPokemon)
 
 
 // ----------------------------NAV MENU SCRIPTS-----------------------
