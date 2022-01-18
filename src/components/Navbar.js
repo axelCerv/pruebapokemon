@@ -1,9 +1,9 @@
 
-import { useState} from 'react';
+import { useState, useEffect} from 'react';
 import logo from '../img/logo_pokemon.png'
 
 export default function Navbar() {
-
+    
     const [active, setActive] = useState(false)
 
     const openMenu = () =>{
@@ -11,7 +11,39 @@ export default function Navbar() {
     }
     const closeMenu = () =>{
         setActive(false)
-     }
+     }    
+
+    useEffect(() => {
+        const itemMenu = document.querySelectorAll('.item-menu');
+        const section = document.querySelectorAll('.section')
+        const sideNav = document.querySelector('.side-nav')
+
+        function removeActive(){
+            itemMenu.forEach((item)=>{
+                item.classList.remove('active');
+            }) 
+        }
+        
+        itemMenu.forEach((item)=>{
+            item.addEventListener('click',()=>{
+                removeActive();
+                item.classList.add('active');
+                sideNav.classList.remove('active');
+                setActive(false)
+            })
+        })
+        
+        function scrollActive(){
+            var lon = section.length;
+            while(--lon && window.scrollY  < section[lon].offsetTop + 50 && window.scrollY < section[lon].offsetTop -600){ }
+            removeActive();
+            itemMenu[lon].classList.add('active');
+
+        }
+        scrollActive();
+        window.addEventListener('scroll',scrollActive)
+        
+    }, [])
 
     return (
         <>
@@ -20,7 +52,7 @@ export default function Navbar() {
                 <button className="menu-btn"><i className='bx bx-menu' onClick={openMenu}></i></button>
             </div>
 
-            <nav className={!active ? 'side-nav' : 'side-nav active'}>
+            <nav className={active == false ? 'side-nav' : 'side-nav active'}>
                 <button className="close-btn" onClick={closeMenu}><i className='bx bx-plus'></i></button>
 
                 <a href="#inicio" className="logo">

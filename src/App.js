@@ -73,9 +73,8 @@ function App() {
         if(!pokemon){
             setNotFound(false)
             return fetchPokemons();
-            
         }
-
+        setNotFound(false)
         setLoading(true);
         
         const result = await searchPokemon(pokemon)
