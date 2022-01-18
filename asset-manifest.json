@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/pruebapokemon/static/css/main.61a401c3.css",
-    "main.js": "/pruebapokemon/static/js/main.1199974d.js",
+    "main.js": "/pruebapokemon/static/js/main.65ecefa6.js",
     "static/media/home-img.png": "/pruebapokemon/static/media/home-img.e5eaeab434303c59b506.png",
     "static/media/pikachu.png": "/pruebapokemon/static/media/pikachu.f14bc9a2444dc61d7311.png",
     "static/media/logo_pokemon.png": "/pruebapokemon/static/media/logo_pokemon.e5a8188c1ea9871a5d82.png",
     "index.html": "/pruebapokemon/index.html",
     "main.61a401c3.css.map": "/pruebapokemon/static/css/main.61a401c3.css.map",
-    "main.1199974d.js.map": "/pruebapokemon/static/js/main.1199974d.js.map"
+    "main.65ecefa6.js.map": "/pruebapokemon/static/js/main.65ecefa6.js.map"
   },
   "entrypoints": [
     "static/css/main.61a401c3.css",
-    "static/js/main.1199974d.js"
+    "static/js/main.65ecefa6.js"
   ]
 }
